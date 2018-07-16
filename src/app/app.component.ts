@@ -14,6 +14,8 @@ export class AppComponent {
   winnerIndexes: number[];
   xoTable: xoModel[];
   isStop: boolean;
+  xCounter: number = 0;
+  oCounter: number = 0;
   successIndexes: number[][] = [
     [0, 1, 2],
     [3, 4, 5],
@@ -90,6 +92,11 @@ export class AppComponent {
         && indexesOfCurrentCharacter.includes(indexes[1])
         && indexesOfCurrentCharacter.includes(indexes[2])) {
         this.winnerIndexes = indexes;
+        if (this.character === 'X') {
+          this.xCounter++;
+        } else {
+          this.oCounter++;
+        }
         this.isStop = true;
         return;
       }
