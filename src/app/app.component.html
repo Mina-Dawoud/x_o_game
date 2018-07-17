@@ -1,23 +1,42 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <img class="xo-image" src="../assets/images/xo-favicon.png">
-  <h1 class="main-heading">
-    GAME
-  </h1>
-  <h2 (click)="backOneStep()">Back</h2>
-  <h2 (click)="reset()">Reset</h2>
-  <table>
-    <tr *ngFor="let x of [0,1,2]">
-      <td class="{{xoTable[x*3+y].value? 'disabled' : ''}}" *ngFor="let y of [0,1,2]" (click)="setCharacter(x*3+y)" [ngClass]="getStyle(x*3+y)">{{xoTable[x*3+y].value}}</td>
-    </tr>
-  </table>
-</div>
+<div class="xo-container">
+  <div style="text-align:center">
 
-<div class="player-container">
-  <div class="float-left" [ngClass]="{'x-style': isWinner('X')}">
-    <h3>Player X ({{xCounter}})</h3>
+    <img class="xo-image" src="../assets/images/xo-favicon.png">
+
+    <h1 class="main-heading">
+      GAME
+    </h1>
+
+    <div>
+      <h2 class="clicked-btn" (click)="backOneStep()">
+        <i class="fas fa-long-arrow-alt-left"></i>
+        Back
+      </h2>
+      <h2 class="clicked-btn" (click)="reset()">
+        <i class="fas fa-undo-alt"></i>
+        Reset
+      </h2>
+    </div>
+
+    <table>
+      <tr *ngFor="let x of [0,1,2]">
+        <td class="{{xoTable[x*3+y].value? 'disabled' : ''}}" *ngFor="let y of [0,1,2]" (click)="setCharacter(x*3+y)" [ngClass]="getStyle(x*3+y)">{{xoTable[x*3+y].value}}</td>
+      </tr>
+    </table>
+
   </div>
-  <div class="float-right"  [ngClass]="{'o-style': isWinner('O')}">
-    <h3>Player O ({{oCounter}})</h3>
+
+
+  <div class="player-container">
+
+    <div class="float-left" [ngClass]="{'x-style': isWinner('X')}">
+      <h3>Player X ({{xCounter}})</h3>
+    </div>
+
+    <div class="float-right" [ngClass]="{'o-style': isWinner('O')}">
+      <h3>Player O ({{oCounter}})</h3>
+    </div>
+
   </div>
 </div>
