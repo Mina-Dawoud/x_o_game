@@ -1,3 +1,12 @@
+.xo-container{
+    font-family: 'Merienda', cursive;
+}
+
+.xo-image{
+    width: 6%;
+    margin-top: 20px;
+}
+
 table{
     text-align: center;
     width: 30%;
@@ -7,9 +16,15 @@ table{
 
 table tr td{
     width: 33%;
-    border: 1px solid #333;
+    border: 1px solid #2a3645;
     font-size: 60px;
     height: 100px;
+}
+
+.main-heading{
+    margin-top: 0px;
+    color: #6ac08f;
+    font-size: 50px;
 }
 
 table tr td:not(.disabled):hover{
@@ -49,4 +64,18 @@ table tr td:not(.disabled):hover{
 
 .float-left{
     float: left;
+}
+
+.clicked-btn{
+    cursor: pointer;
+    color: #2a3645;
+    display: inline-block;
+}
+
+.clicked-btn:first-child{
+    margin-right: 100px;
+}
+
+.clicked-btn i{
+    color: #6ac08f;
 }
