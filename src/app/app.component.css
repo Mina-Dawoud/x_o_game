@@ -1,4 +1,4 @@
-.xo-container{
+#xo-container{
     font-family: 'Merienda', cursive;
 }
 
@@ -78,4 +78,9 @@ table tr td:not(.disabled):hover{
 
 .clicked-btn i{
     color: #6ac08f;
+}
+
+.celebration{
+    background: url('../assets/images/celebration.gif');
+    background-size: cover;
 }
