@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    X/O Game
+    {{firstCharacter}}/{{secondCharacter}} Game
   </h1>
   <h2 (click)="backOneStep()">Back</h2>
   <h2 (click)="reset()">Reset</h2>
@@ -13,10 +13,10 @@
 </div>
 
 <div class="player-container">
-  <div class="float-left" [ngClass]="{'x-style': isWinner('X')}">
-    <h3>Player X ({{xCounter}})</h3>
+  <div class="float-left" [ngClass]="{'x-style': isWinner(x)}">
+    <h3>Player {{firstCharacter}} ({{xCounter}})</h3>
   </div>
-  <div class="float-right"  [ngClass]="{'o-style': isWinner('O')}">
-    <h3>Player O ({{oCounter}})</h3>
+  <div class="float-right"  [ngClass]="{'o-style': isWinner(o)}">
+    <h3>Player {{secondCharacter}} ({{oCounter}})</h3>
   </div>
 </div>

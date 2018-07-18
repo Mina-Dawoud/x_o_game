@@ -9,7 +9,9 @@ import { ValueTransformer } from '../../node_modules/@angular/compiler/src/util'
 })
 
 export class AppComponent {
-  character = 'X';
+  private firstCharacter = 'X';
+  private secondCharacter = 'O';
+  character = this.firstCharacter;
   nextOrder = 0;
   winnerIndexes: number[];
   xoTable: xoModel[];
@@ -32,21 +34,14 @@ export class AppComponent {
   }
 
   private fillXOTableWithEmpty() {
-    this.xoTable = [
-      new xoModel(),
-      new xoModel(),
-      new xoModel(),
-      new xoModel(),
-      new xoModel(),
-      new xoModel(),
-      new xoModel(),
-      new xoModel(),
-      new xoModel()
-    ];
+    this.xoTable = [];
+    for (let index = 0; index < 10; index++) {
+      this.xoTable.push(new xoModel());
+    }
   }
 
   changeCharacter() {
-    this.character = this.character === 'X' ? 'O' : 'X';
+    this.character = this.character === this.firstCharacter ? this.secondCharacter : this.firstCharacter;
   }
 
   setCharacter(index: number) {
@@ -76,7 +71,7 @@ export class AppComponent {
     if (this.winnerIndexes.includes(index)) {
       return 'success';
     }
-    return this.xoTable[index].value === 'X' ? 'x-style' : 'o-style';
+    return this.xoTable[index].value === this.firstCharacter ? 'firstCharacter-style' : 'secondCharacter-style';
   }
 
   private checkWinner() {
@@ -92,7 +87,7 @@ export class AppComponent {
         && indexesOfCurrentCharacter.includes(indexes[1])
         && indexesOfCurrentCharacter.includes(indexes[2])) {
         this.winnerIndexes = indexes;
-        if (this.character === 'X') {
+        if (this.character === this.firstCharacter) {
           this.xCounter++;
         } else {
           this.oCounter++;
@@ -105,7 +100,7 @@ export class AppComponent {
 
   reset() {
     this.winnerIndexes = [];
-    this.character = 'X';
+    this.character = this.firstCharacter;
     this.fillXOTableWithEmpty();
     this.isStop = false;
   }
