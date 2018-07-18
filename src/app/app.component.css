@@ -50,16 +50,12 @@ table tr td:not(.disabled):hover{
     -moz-box-shadow: 1px 2px 101px 0px rgba(245,0,0,0.75);
 }
 
-.x-style{
+.firstCharacter-style{
     color: #dd670d;
 }
 
-.o-style{
+.secondCharacter-style{
     color: #0d60dd;
-}
-
-.player-container{
-    /* position: relative; */
 }
 
 .float-right{
