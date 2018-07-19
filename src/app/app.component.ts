@@ -90,6 +90,12 @@ export class AppComponent {
         this.winnerIndexes = indexes;
         if (this.character === this.firstCharacter) {
           this.xCounter++;
+          document.getElementById("xo-container").classList.add('celebration');
+          debugger
+          setTimeout(() => {
+            debugger
+            document.getElementById("xo-container").classList.remove('celebration');
+          }, 3000);
         } else {
           this.oCounter++;
         }
