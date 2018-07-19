@@ -35,7 +35,7 @@ export class AppComponent {
 
   private fillXOTableWithEmpty() {
     this.xoTable = [];
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 9; index++) {
       this.xoTable.push(new xoModel());
     }
   }
@@ -51,6 +51,7 @@ export class AppComponent {
       this.checkWinner();
       this.changeCharacter();
     }
+    this.checkTie();
   }
 
   backOneStep() {
@@ -103,9 +104,17 @@ export class AppComponent {
     this.character = this.firstCharacter;
     this.fillXOTableWithEmpty();
     this.isStop = false;
+    this.nextOrder = 0;
   }
 
   isWinner(character: string) {
     return this.winnerIndexes.length > 0 && character !== this.character;
+  }
+
+  private checkTie() {
+    if (!this.xoTable.find(el => !el.value) && this.winnerIndexes.length === 0) {
+      alert('Tie');
+      this.reset();
+    }
   }
 }
