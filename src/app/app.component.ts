@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { xoModel } from './xo.model';
 import { ValueTransformer } from '../../node_modules/@angular/compiler/src/util';
+import { Howl } from 'howler'
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,11 @@ export class AppComponent {
     [0, 4, 8],
     [2, 4, 6]
   ];
+
+  celebrationSound = new Howl({
+    src: ["./../assets/audios/cheer.mp3"],
+    html5: true
+  });
 
   constructor() {
     this.reset();
@@ -93,7 +99,7 @@ export class AppComponent {
         } else {
           this.oCounter++;
         }
-        setTimeout(()=>this.reset(), 3000);
+        setTimeout(() => this.reset(), 3000);
         this.isStop = true;
         return;
       }
@@ -117,5 +123,12 @@ export class AppComponent {
       alert('Tie');
       this.reset();
     }
+  }
+  playCelebration() {
+    this.celebrationSound.play();
+  }
+
+  pauseCelebration() {
+    this.celebrationSound.pause();
   }
 }
