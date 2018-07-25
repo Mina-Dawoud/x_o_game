@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div id="xo-container">
+<div id="xo-container" [ngClass]="{'celebration':isWinner(firstCharacter) || isWinner(secondCharacter)}">
   <div style="text-align:center">
 
     <img class="xo-image" src="../assets/images/xo-favicon.png">
@@ -21,7 +21,7 @@
 
     <table>
       <tr *ngFor="let x of [0,1,2]">
-        <td class="{{xoTable[x*3+y].value? 'disabled' : ''}}" *ngFor="let y of [0,1,2]" (click)="setCharacter(x*3+y)" [ngClass]="getStyle(x*3+y)">{{xoTable[x*3+y].value}}</td>
+        <td  class="{{xoTable[x*3+y].value? 'disabled' : ''}}" *ngFor="let y of [0,1,2]" (click)="setCharacter(x*3+y)" [ngClass]="getStyle(x*3+y)">{{xoTable[x*3+y].value}}</td>
       </tr>
     </table>
 
